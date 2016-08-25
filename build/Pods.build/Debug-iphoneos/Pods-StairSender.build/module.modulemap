@@ -1,0 +1,6 @@
+framework module Pods_StairSender {
+  umbrella header "Pods-StairSender-umbrella.h"
+
+  export *
+  module * { export * }
+}

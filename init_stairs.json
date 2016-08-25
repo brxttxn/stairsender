@@ -1,0 +1,15 @@
+{
+  "stairs" : {
+    "1" : {
+      "title" : "Big Stairs",
+      "bestLap" : "1m",
+      "bestTotal" : "10m",
+      "worstLap" : "6m",
+      "worstTotal" : "25m",
+      "totalLaps" : "121",
+      "totalSets" : "30",
+      "averageTotal" : "12m",
+      "averageLap" : "3m"
+    }
+  }
+}
