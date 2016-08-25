@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		74E8FEDDBE3306E4A46F196D /* Pods_StairSender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD71008FBCC8458979DE915 /* Pods_StairSender.framework */; };
+		AA4E08AE1D6D43BC00EE6B4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA4E08AD1D6D43BC00EE6B4A /* GoogleService-Info.plist */; };
+		AA7197C31D598BAB0030B138 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7197C21D598BAB0030B138 /* AppDelegate.swift */; };
+		AA7197C51D598BAB0030B138 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7197C41D598BAB0030B138 /* HomeViewController.swift */; };
+		AA7197C81D598BAB0030B138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA7197C61D598BAB0030B138 /* Main.storyboard */; };
+		AA7197CB1D598BAB0030B138 /* StairSender.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA7197C91D598BAB0030B138 /* StairSender.xcdatamodeld */; };
+		AA7197CD1D598BAB0030B138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA7197CC1D598BAB0030B138 /* Assets.xcassets */; };
+		AA7197D01D598BAB0030B138 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA7197CE1D598BAB0030B138 /* LaunchScreen.storyboard */; };
+		AA7197D81D598E2B0030B138 /* PrepareToSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7197D71D598E2B0030B138 /* PrepareToSendViewController.swift */; };
+		AA7197DA1D598E630030B138 /* SendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7197D91D598E630030B138 /* SendingViewController.swift */; };
+		AA7197DD1D598EA20030B138 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7197DC1D598EA20030B138 /* StatsViewController.swift */; };
+		AA7197DF1D5AD2160030B138 /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7197DE1D5AD2160030B138 /* Values.swift */; };
+		AAFE29011D68A890004ABA93 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE29001D68A890004ABA93 /* Util.swift */; };
+		AAFE29031D68AEC4004ABA93 /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE29021D68AEC4004ABA93 /* FinishedViewController.swift */; };
+		AAFE29071D6BDF44004ABA93 /* pause_filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFE29051D6BDF44004ABA93 /* pause_filled-50.png */; };
+		AAFE29081D6BDF44004ABA93 /* pause-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFE29061D6BDF44004ABA93 /* pause-50.png */; };
+		AAFE290A1D6C130D004ABA93 /* stairs.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFE29091D6C130D004ABA93 /* stairs.png */; };
+		AAFE290C1D6D0DBC004ABA93 /* StatsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE290B1D6D0DBC004ABA93 /* StatsDetailViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6AD71008FBCC8458979DE915 /* Pods_StairSender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StairSender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BCADC20164F5FD6DFC2CCAD /* Pods-StairSender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StairSender.release.xcconfig"; path = "Pods/Target Support Files/Pods-StairSender/Pods-StairSender.release.xcconfig"; sourceTree = "<group>"; };
+		75FE3677223868B579F7C180 /* Pods-StairSender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StairSender.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StairSender/Pods-StairSender.debug.xcconfig"; sourceTree = "<group>"; };
+		AA4E08AD1D6D43BC00EE6B4A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AA7197BF1D598BAB0030B138 /* StairSender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StairSender.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7197C21D598BAB0030B138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AA7197C41D598BAB0030B138 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AA7197C71D598BAB0030B138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AA7197CA1D598BAB0030B138 /* StairSender.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StairSender.xcdatamodel; sourceTree = "<group>"; };
+		AA7197CC1D598BAB0030B138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA7197CF1D598BAB0030B138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AA7197D11D598BAB0030B138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA7197D71D598E2B0030B138 /* PrepareToSendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepareToSendViewController.swift; sourceTree = "<group>"; };
+		AA7197D91D598E630030B138 /* SendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingViewController.swift; sourceTree = "<group>"; };
+		AA7197DC1D598EA20030B138 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		AA7197DE1D5AD2160030B138 /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
+		AAFE29001D68A890004ABA93 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		AAFE29021D68AEC4004ABA93 /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
+		AAFE29051D6BDF44004ABA93 /* pause_filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause_filled-50.png"; sourceTree = "<group>"; };
+		AAFE29061D6BDF44004ABA93 /* pause-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-50.png"; sourceTree = "<group>"; };
+		AAFE29091D6C130D004ABA93 /* stairs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stairs.png; sourceTree = "<group>"; };
+		AAFE290B1D6D0DBC004ABA93 /* StatsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsDetailViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA7197BC1D598BAB0030B138 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74E8FEDDBE3306E4A46F196D /* Pods_StairSender.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6D1605763AF9748D55994ACE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6AD71008FBCC8458979DE915 /* Pods_StairSender.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA7197B61D598BAB0030B138 = {
+			isa = PBXGroup;
+			children = (
+				AA7197C11D598BAB0030B138 /* StairSender */,
+				AA7197C01D598BAB0030B138 /* Products */,
+				B3A2D264F56E4FD7EC17AA96 /* Pods */,
+				6D1605763AF9748D55994ACE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AA7197C01D598BAB0030B138 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA7197BF1D598BAB0030B138 /* StairSender.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA7197C11D598BAB0030B138 /* StairSender */ = {
+			isa = PBXGroup;
+			children = (
+				AA7197DB1D598E6F0030B138 /* UI */,
+				AA7197C21D598BAB0030B138 /* AppDelegate.swift */,
+				AA7197C61D598BAB0030B138 /* Main.storyboard */,
+				AA7197CE1D598BAB0030B138 /* LaunchScreen.storyboard */,
+				AA7197CC1D598BAB0030B138 /* Assets.xcassets */,
+				AA7197D11D598BAB0030B138 /* Info.plist */,
+				AA4E08AD1D6D43BC00EE6B4A /* GoogleService-Info.plist */,
+				AA7197C91D598BAB0030B138 /* StairSender.xcdatamodeld */,
+				AA7197DE1D5AD2160030B138 /* Values.swift */,
+				AAFE29001D68A890004ABA93 /* Util.swift */,
+				AAFE29041D6BDEC6004ABA93 /* Images */,
+			);
+			path = StairSender;
+			sourceTree = "<group>";
+		};
+		AA7197DB1D598E6F0030B138 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AA7197DC1D598EA20030B138 /* StatsViewController.swift */,
+				AAFE290B1D6D0DBC004ABA93 /* StatsDetailViewController.swift */,
+				AA7197D91D598E630030B138 /* SendingViewController.swift */,
+				AA7197D71D598E2B0030B138 /* PrepareToSendViewController.swift */,
+				AA7197C41D598BAB0030B138 /* HomeViewController.swift */,
+				AAFE29021D68AEC4004ABA93 /* FinishedViewController.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		AAFE29041D6BDEC6004ABA93 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				AAFE29091D6C130D004ABA93 /* stairs.png */,
+				AAFE29051D6BDF44004ABA93 /* pause_filled-50.png */,
+				AAFE29061D6BDF44004ABA93 /* pause-50.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		B3A2D264F56E4FD7EC17AA96 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				75FE3677223868B579F7C180 /* Pods-StairSender.debug.xcconfig */,
+				6BCADC20164F5FD6DFC2CCAD /* Pods-StairSender.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA7197BE1D598BAB0030B138 /* StairSender */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA7197D41D598BAB0030B138 /* Build configuration list for PBXNativeTarget "StairSender" */;
+			buildPhases = (
+				B3DFB8C0058FA97404A5A22E /* 📦 Check Pods Manifest.lock */,
+				AA7197BB1D598BAB0030B138 /* Sources */,
+				AA7197BC1D598BAB0030B138 /* Frameworks */,
+				AA7197BD1D598BAB0030B138 /* Resources */,
+				8AC459DA54641D35B96128AC /* 📦 Embed Pods Frameworks */,
+				1A60CB3F903F5528FA218167 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StairSender;
+			productName = StairSender;
+			productReference = AA7197BF1D598BAB0030B138 /* StairSender.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA7197B71D598BAB0030B138 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Cole Britton";
+				TargetAttributes = {
+					AA7197BE1D598BAB0030B138 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = AA7197BA1D598BAB0030B138 /* Build configuration list for PBXProject "StairSender" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA7197B61D598BAB0030B138;
+			productRefGroup = AA7197C01D598BAB0030B138 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA7197BE1D598BAB0030B138 /* StairSender */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA7197BD1D598BAB0030B138 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA7197D01D598BAB0030B138 /* LaunchScreen.storyboard in Resources */,
+				AAFE29071D6BDF44004ABA93 /* pause_filled-50.png in Resources */,
+				AAFE29081D6BDF44004ABA93 /* pause-50.png in Resources */,
+				AA7197CD1D598BAB0030B138 /* Assets.xcassets in Resources */,
+				AA7197C81D598BAB0030B138 /* Main.storyboard in Resources */,
+				AAFE290A1D6C130D004ABA93 /* stairs.png in Resources */,
+				AA4E08AE1D6D43BC00EE6B4A /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A60CB3F903F5528FA218167 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StairSender/Pods-StairSender-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AC459DA54641D35B96128AC /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StairSender/Pods-StairSender-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3DFB8C0058FA97404A5A22E /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA7197BB1D598BAB0030B138 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA7197DF1D5AD2160030B138 /* Values.swift in Sources */,
+				AA7197C51D598BAB0030B138 /* HomeViewController.swift in Sources */,
+				AA7197D81D598E2B0030B138 /* PrepareToSendViewController.swift in Sources */,
+				AAFE29031D68AEC4004ABA93 /* FinishedViewController.swift in Sources */,
+				AAFE29011D68A890004ABA93 /* Util.swift in Sources */,
+				AA7197C31D598BAB0030B138 /* AppDelegate.swift in Sources */,
+				AA7197DA1D598E630030B138 /* SendingViewController.swift in Sources */,
+				AAFE290C1D6D0DBC004ABA93 /* StatsDetailViewController.swift in Sources */,
+				AA7197DD1D598EA20030B138 /* StatsViewController.swift in Sources */,
+				AA7197CB1D598BAB0030B138 /* StairSender.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AA7197C61D598BAB0030B138 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA7197C71D598BAB0030B138 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AA7197CE1D598BAB0030B138 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA7197CF1D598BAB0030B138 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA7197D21D598BAB0030B138 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA7197D31D598BAB0030B138 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA7197D51D598BAB0030B138 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75FE3677223868B579F7C180 /* Pods-StairSender.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)\"/**";
+				INFOPLIST_FILE = StairSender/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brxttxn.StairSender;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA7197D61D598BAB0030B138 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BCADC20164F5FD6DFC2CCAD /* Pods-StairSender.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)\"/**";
+				INFOPLIST_FILE = StairSender/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brxttxn.StairSender;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA7197BA1D598BAB0030B138 /* Build configuration list for PBXProject "StairSender" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA7197D21D598BAB0030B138 /* Debug */,
+				AA7197D31D598BAB0030B138 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA7197D41D598BAB0030B138 /* Build configuration list for PBXNativeTarget "StairSender" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA7197D51D598BAB0030B138 /* Debug */,
+				AA7197D61D598BAB0030B138 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AA7197C91D598BAB0030B138 /* StairSender.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AA7197CA1D598BAB0030B138 /* StairSender.xcdatamodel */,
+			);
+			currentVersion = AA7197CA1D598BAB0030B138 /* StairSender.xcdatamodel */;
+			path = StairSender.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AA7197B71D598BAB0030B138 /* Project object */;
+}
