@@ -27,7 +27,6 @@ class StatsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         statsHomeTable.reloadData();
         self.navigationController?.navigationBarHidden = true;
-
     }
     
     // UITableViewDataSource protocol methods
