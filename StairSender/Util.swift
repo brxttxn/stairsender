@@ -9,11 +9,6 @@
 import Foundation;
 import UIKit;
 
-func secondsToHMSFormat(seconds: Int) -> String {
-    let (h, m, s) = secondsToHoursMinutesSeconds(seconds);
-    return convertHMSToHMSFormat(h, m: m, s: s);
-}
-
 func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
     return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
 }
@@ -27,11 +22,12 @@ func convertHMStoSeconds(hours:Int, minutes:Int, seconds:Int) -> (Int) {
     return totalInSeconds;
 }
 
-func convertHMSToHMSFormat(h:Int,m:Int,s:Int) -> String {
+func convertHMSMToHMSMFormat(h:Int,m:Int,s:Int,ms:Int) -> String {
     
     var hString = String(h);
     var mString = String(m);
     var sString = String(s);
+    var msString = String(ms);
     
     if h == 0 {
         hString = "";
@@ -46,10 +42,22 @@ func convertHMSToHMSFormat(h:Int,m:Int,s:Int) -> String {
     }
     
     if s < 10 {
-        sString = "0\(sString)";
+        sString = "0\(sString):";
+    } else {
+        sString = "\(sString):";
     }
     
-    return "\(hString)\(mString)\(sString)";
+    if ms < 10 {
+        msString = "00\(msString)";
+    } else if ms < 100 {
+        msString = "0\(msString)";
+    } else {
+        msString = "\(msString)";
+    }
+    
+    msString = msString.substringToIndex(msString.endIndex.predecessor());
+    
+    return "\(hString)\(mString)\(sString)\(msString)";
 }
 
 func stringFromTimeInterval(interval:NSTimeInterval) -> String {
@@ -63,6 +71,19 @@ func stringFromTimeInterval(interval:NSTimeInterval) -> String {
     let hours = (ti / 3600)
     
     return String(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
+}
+
+func displayStringFromTimeInterval(interval:NSTimeInterval) -> String {
+    
+    let ti = NSInteger(interval)
+    
+    let ms = Int((interval % 1) * 1000)
+    
+    let seconds = ti % 60
+    let minutes = (ti / 60) % 60
+    let hours = (ti / 3600)
+    
+    return convertHMSMToHMSMFormat(hours, m: minutes, s: seconds, ms: ms);
 }
 
 func presentInfoAlert(title: String, message: String, viewController: UIViewController) {

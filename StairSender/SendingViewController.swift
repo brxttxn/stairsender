@@ -112,13 +112,13 @@ class SendingViewController: UIViewController {
     
     func updateTotalClock() {
         let curTime = NSDate.timeIntervalSinceReferenceDate();
-        let elapsedTime = curTime - totalTimerStartTime;
-        curTotalTimeLabel.text = stringFromTimeInterval(elapsedTime);
+        curTotalTime = curTime - totalTimerStartTime;
+        curTotalTimeLabel.text = stringFromTimeInterval(curTotalTime);
     }
     func updateLapClock() {
         let curTime = NSDate.timeIntervalSinceReferenceDate();
-        let elapsedTime = curTime - lapTimerStartTime;
-        curLapTimeLabel.text = stringFromTimeInterval(elapsedTime);
+        curLapTime = curTime - lapTimerStartTime;
+        curLapTimeLabel.text = stringFromTimeInterval(curLapTime);
     }
     
 }

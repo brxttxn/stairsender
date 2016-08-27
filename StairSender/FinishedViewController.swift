@@ -40,11 +40,11 @@ class FinishedViewController: UIViewController {
     func setLabels() {
         setTitleLabel.text = curSetTitle;
         setDescription.text = getDescription();
-        totalTimeLabel.text = secondsToHMSLabelFormat(curTotalTime);
+        totalTimeLabel.text = displayStringFromTimeInterval(curTotalTime);
         totalLapsLabel.text = "\(curLap - 1)";
         if (curLapTimes.count > 0){
-            bestLapLabel.text = secondsToHMSLabelFormat(getBestLap());
-            averageLapLabel.text = secondsToHMSLabelFormat(getAverageLap());
+            bestLapLabel.text = displayStringFromTimeInterval(getBestLap());
+            averageLapLabel.text = displayStringFromTimeInterval(getAverageLap());
         } else {
             bestLapLabel.text = "...";
             averageLapLabel.text = "...";
@@ -52,18 +52,14 @@ class FinishedViewController: UIViewController {
         
     }
     
-    func getBestLap() -> Int {
+    func getBestLap() -> NSTimeInterval {
         curLapTimes.sortInPlace();
         return curLapTimes[0];
     }
     
-    func getAverageLap() -> Int {
-        var total = 0;
-        for i in curLapTimes {
-            total += i;
-        }
-        
-        return total/(curLapTimes.count);
+    func getAverageLap() -> Double {
+        let average: Double = (curLapTimes as AnyObject).valueForKeyPath("@avg.self") as! Double
+        return average;
     }
     
     func getDescription() -> String {

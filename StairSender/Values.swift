@@ -29,13 +29,13 @@ var lapTimerStartTime = NSDate.timeIntervalSinceReferenceDate();
 let setLapAmounts = [1, 3, 5, 10, 20, 30, 40, 50, 60, 70, 80, 100];
 var stairs = [[String:String]]();
 
-var curTotalTime = 0;
-var curLapTime = 0;
+var curTotalTime:NSTimeInterval = 0;
+var curLapTime:NSTimeInterval = 0;
 var curLap = 1;
 var quiter = false;
 var curSetTitle = "Stairs";
 var curLaps = 0;
-var curLapTimes = [Int]();
+var curLapTimes = [NSTimeInterval]();
 
 //var curStairRecord: StairRecord = StairRecord();
 
