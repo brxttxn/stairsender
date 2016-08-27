@@ -23,7 +23,10 @@ struct Constants {
 var totalTimer = NSTimer();
 var lapTimer = NSTimer();
 
-let setLapAmounts = [3, 5, 10, 20, 30, 40, 50];
+var totalTimerStartTime = NSDate.timeIntervalSinceReferenceDate();
+var lapTimerStartTime = NSDate.timeIntervalSinceReferenceDate();
+
+let setLapAmounts = [1, 3, 5, 10, 20, 30, 40, 50, 60, 70, 80, 100];
 var stairs = [[String:String]]();
 
 var curTotalTime = 0;

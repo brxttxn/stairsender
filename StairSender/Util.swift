@@ -52,27 +52,17 @@ func convertHMSToHMSFormat(h:Int,m:Int,s:Int) -> String {
     return "\(hString)\(mString)\(sString)";
 }
 
-func secondsToHMSLabelFormat(seconds:Int) -> String {
+func stringFromTimeInterval(interval:NSTimeInterval) -> String {
     
-    let (h,m,s) = secondsToHoursMinutesSeconds(seconds);
+    let ti = NSInteger(interval)
     
-    var hString = "";
-    var mString = "";
-    var sString = "";
+    let ms = Int((interval % 1) * 1000)
     
-    if h > 0 {
-        hString = "\(h)h"
-    }
+    let seconds = ti % 60
+    let minutes = (ti / 60) % 60
+    let hours = (ti / 3600)
     
-    if m > 0 {
-        mString = "\(m)m"
-    }
-    
-    if s >= 0 {
-        sString = "\(s)s"
-    }
-    
-    return "\(hString)\(mString)\(sString)";
+    return String(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
 }
 
 func presentInfoAlert(title: String, message: String, viewController: UIViewController) {
@@ -82,6 +72,8 @@ func presentInfoAlert(title: String, message: String, viewController: UIViewCont
     viewController.presentViewController(alert, animated: true, completion: nil)
     
 }
+
+
 
 extension UIColor {
     
@@ -95,6 +87,27 @@ extension UIColor {
         
         self.init(red: components.R, green: components.G, blue: components.B, alpha: 1)
         
+    }
+    
+}
+
+extension UIFont {
+    
+    var monospacedDigitFont: UIFont {
+        let oldFontDescriptor = fontDescriptor()
+        let newFontDescriptor = oldFontDescriptor.monospacedDigitFontDescriptor
+        return UIFont(descriptor: newFontDescriptor, size: 0)
+    }
+    
+}
+
+private extension UIFontDescriptor {
+    
+    var monospacedDigitFontDescriptor: UIFontDescriptor {
+        let fontDescriptorFeatureSettings = [[UIFontFeatureTypeIdentifierKey: kNumberSpacingType, UIFontFeatureSelectorIdentifierKey: kMonospacedNumbersSelector]]
+        let fontDescriptorAttributes = [UIFontDescriptorFeatureSettingsAttribute: fontDescriptorFeatureSettings]
+        let fontDescriptor = self.fontDescriptorByAddingAttributes(fontDescriptorAttributes)
+        return fontDescriptor
     }
     
 }

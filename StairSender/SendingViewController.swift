@@ -10,12 +10,22 @@ import Foundation
 import UIKit
 
 class SendingViewController: UIViewController {
-
+    
+    var resume = false;
+    
     @IBOutlet var setTitleLabel: UILabel!
     @IBOutlet var pauseButtonOutlet: UIButton!
-
-    @IBOutlet var curLapTimeLabel: UILabel!
-    @IBOutlet var curTotalTimeLabel: UILabel!
+    
+    @IBOutlet var curLapTimeLabel: UILabel! {
+        didSet {
+            curLapTimeLabel.font = curLapTimeLabel.font.monospacedDigitFont
+        }
+    }
+    @IBOutlet var curTotalTimeLabel: UILabel! {
+        didSet {
+            curTotalTimeLabel.font = curTotalTimeLabel.font.monospacedDigitFont
+        }
+    }
     @IBOutlet var lapButtonOutlet: UIButton!
     
     
@@ -28,26 +38,29 @@ class SendingViewController: UIViewController {
     
     func presentPauseAlert() {
         let alertController = UIAlertController(title: "Paused", message: "You're not done are you?", preferredStyle: .Alert)
-
+        
         let resumeAction = UIAlertAction(title: "Resume", style: UIAlertActionStyle.Default) {
             UIAlertAction in
             self.pauseButtonOutlet.setImage(UIImage(named: "pause-50.png"), forState: UIControlState.Normal);
-            self.startTheClocks();
+            self.resume = true;
+            self.startLapTimer();
+            self.startTotalTimer();
+            self.resume = false;
         }
         let quitAction = UIAlertAction(title: "Quit", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
             quiter = true;
             self.finishSet();
         }
-
+        
         alertController.addAction(resumeAction)
         alertController.addAction(quitAction)
-
+        
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     @IBAction func lapButtonAction(sender: AnyObject) {
-
+        
         curLapTimes.append(curLapTime);
         if curLap == curLaps {
             finishSet();
@@ -55,12 +68,8 @@ class SendingViewController: UIViewController {
             lapButtonOutlet.setTitle("Done!", forState: UIControlState.Normal);
         }
         curLap += 1;
-        curLapTime = 0;
-        curLapTimeLabel.text = secondsToHMSFormat(curLapTime);
         lapTimer.invalidate();
-        lapTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(SendingViewController.updateLapClock), userInfo: nil, repeats: true);
-        
-        
+        startLapTimer();
     }
     
     func finishSet() {
@@ -78,7 +87,8 @@ class SendingViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         setTitleLabel.text = curSetTitle;
-        startTheClocks();
+        startLapTimer();
+        startTotalTimer();
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -86,18 +96,29 @@ class SendingViewController: UIViewController {
         lapTimer.invalidate();
     }
     
-    func startTheClocks() {
-        totalTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(SendingViewController.updateTotalClock), userInfo: nil, repeats: true);
-        lapTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(SendingViewController.updateLapClock), userInfo: nil, repeats: true);
+    func startLapTimer() {
+        if !resume {
+            lapTimerStartTime = NSDate.timeIntervalSinceReferenceDate();
+        }
+        lapTimer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(SendingViewController.updateLapClock), userInfo: nil, repeats: true);
+    }
+    
+    func startTotalTimer() {
+        if !resume {
+            totalTimerStartTime = NSDate.timeIntervalSinceReferenceDate();
+        }
+        totalTimer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(SendingViewController.updateTotalClock), userInfo: nil, repeats: true);
     }
     
     func updateTotalClock() {
-        curTotalTime += 1;
-        curTotalTimeLabel.text = secondsToHMSFormat(curTotalTime);
+        let curTime = NSDate.timeIntervalSinceReferenceDate();
+        let elapsedTime = curTime - totalTimerStartTime;
+        curTotalTimeLabel.text = stringFromTimeInterval(elapsedTime);
     }
     func updateLapClock() {
-        curLapTime += 1;
-        curLapTimeLabel.text = secondsToHMSFormat(curLapTime);
+        let curTime = NSDate.timeIntervalSinceReferenceDate();
+        let elapsedTime = curTime - lapTimerStartTime;
+        curLapTimeLabel.text = stringFromTimeInterval(elapsedTime);
     }
     
 }
