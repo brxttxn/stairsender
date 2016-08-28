@@ -32,30 +32,25 @@ func convertHMSMToHMSMFormat(h:Int,m:Int,s:Int,ms:Int) -> String {
     if h == 0 {
         hString = "";
     } else {
-        hString = "\(hString):";
+        hString = "\(hString)h ";
     }
     
-    if m < 10 && h > 0 {
-        mString = "0\(mString):";
+    if m == 0 {
+        mString = "";
     } else {
-        mString = "\(mString):";
+        mString = "\(mString)m ";
     }
     
-    if s < 10 {
-        sString = "0\(sString):";
-    } else {
-        sString = "\(sString):";
-    }
-    
-    if ms < 10 {
-        msString = "00\(msString)";
-    } else if ms < 100 {
-        msString = "0\(msString)";
-    } else {
-        msString = "\(msString)";
-    }
+    sString = "\(sString).";
     
     msString = msString.substringToIndex(msString.endIndex.predecessor());
+    let tempMs = Int(msString);
+    
+    if tempMs < 10 {
+        msString = "0\(msString)s";
+    } else {
+        msString = "\(msString)s";
+    }
     
     return "\(hString)\(mString)\(sString)\(msString)";
 }
@@ -75,9 +70,11 @@ func stringFromTimeInterval(interval:NSTimeInterval) -> String {
 
 func displayStringFromTimeInterval(interval:NSTimeInterval) -> String {
     
-    let ti = NSInteger(interval)
+    let intervalRounded = interval.roundToPlaces(2)
     
-    let ms = Int((interval % 1) * 1000)
+    let ti = NSInteger(intervalRounded)
+    
+    let ms = Int((intervalRounded % 1) * 1000)
     
     let seconds = ti % 60
     let minutes = (ti / 60) % 60
@@ -131,4 +128,12 @@ private extension UIFontDescriptor {
         return fontDescriptor
     }
     
+}
+
+extension Double {
+
+    func roundToPlaces(places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return round(self * divisor) / divisor
+    }
 }

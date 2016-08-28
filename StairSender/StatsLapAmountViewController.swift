@@ -1,8 +1,8 @@
 //
-//  StatsViewController.swift
+//  StatsLapAmountViewController.swift
 //  StairSender
 //
-//  Created by Cole Britton on 8/8/16.
+//  Created by Cole Britton on 8/27/16.
 //  Copyright © 2016 Cole Britton. All rights reserved.
 //
 
@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 import FirebaseDatabase
 
-class StatsViewController: UIViewController {
+class StatsLapAmountViewController: UIViewController {
     
-    @IBOutlet var statsHomeTable: UITableView!
+    @IBOutlet var statsLapTable: UITableView!
     @IBAction func backButtonAction(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil);
+        self.navigationController?.popViewControllerAnimated(true);
     }
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -25,36 +25,33 @@ class StatsViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        statsHomeTable.reloadData();
+        statsLapTable.reloadData();
         self.navigationController?.navigationBarHidden = true;
     }
     
     // UITableViewDataSource protocol methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stairs.count;
+        return displayLapAmounts.count;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("statsHomeCell", forIndexPath: indexPath);
-        cell.textLabel?.text = stairTitles[indexPath.row];
-
+        cell.textLabel?.text = displayLapAmounts[indexPath.row];
+        
         return cell
     }
     
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        let stair = getStairsObjectByTitle(stairTitles[indexPath.row]);
-        activeStat = ["id" : stair!.id, "title" : stair!.stairMetaData["title"]!];
-        performSegueWithIdentifier(Constants.Segues.statsToLapAmountSegue, sender: self);
+
+        if indexPath.row == 0 {
+            performSegueWithIdentifier(Constants.Segues.lapAmountsToAllAmountsSegue, sender: self);
+        } else {
+            activeStat["lapAmount"] = displayLapAmounts[indexPath.row];
+            performSegueWithIdentifier(Constants.Segues.showStatsDetailSegue, sender: self);
+        }        
         
         return indexPath;
     }
+    
 }
-
-
-
-
-
-
-
-

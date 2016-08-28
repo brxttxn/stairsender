@@ -12,6 +12,8 @@ import UIKit
 class SendingViewController: UIViewController {
     
     var resume = false;
+    var resumeWait: NSTimeInterval = 0.0;
+    var resumeWaitStart: NSTimeInterval = 0.0;
     
     @IBOutlet var setTitleLabel: UILabel!
     @IBOutlet var pauseButtonOutlet: UIButton!
@@ -30,6 +32,7 @@ class SendingViewController: UIViewController {
     
     
     @IBAction func pauseButtonAction(sender: AnyObject) {
+        resumeWaitStart = NSDate.timeIntervalSinceReferenceDate();
         totalTimer.invalidate();
         lapTimer.invalidate();
         pauseButtonOutlet.setImage(UIImage(named: "pause_filled-50.png"), forState: UIControlState.Normal);
@@ -43,6 +46,7 @@ class SendingViewController: UIViewController {
             UIAlertAction in
             self.pauseButtonOutlet.setImage(UIImage(named: "pause-50.png"), forState: UIControlState.Normal);
             self.resume = true;
+            self.resumeWait = NSDate.timeIntervalSinceReferenceDate() - self.resumeWaitStart;
             self.startLapTimer();
             self.startTotalTimer();
             self.resume = false;
@@ -97,16 +101,14 @@ class SendingViewController: UIViewController {
     }
     
     func startLapTimer() {
-        if !resume {
-            lapTimerStartTime = NSDate.timeIntervalSinceReferenceDate();
-        }
+        lapTimerStartTime = (resume ? lapTimerStartTime + resumeWait : NSDate.timeIntervalSinceReferenceDate());
+        
         lapTimer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(SendingViewController.updateLapClock), userInfo: nil, repeats: true);
     }
     
     func startTotalTimer() {
-        if !resume {
-            totalTimerStartTime = NSDate.timeIntervalSinceReferenceDate();
-        }
+        totalTimerStartTime = (resume ? totalTimerStartTime + resumeWait : NSDate.timeIntervalSinceReferenceDate());
+        
         totalTimer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(SendingViewController.updateTotalClock), userInfo: nil, repeats: true);
     }
     

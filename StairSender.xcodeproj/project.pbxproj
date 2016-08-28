@@ -19,6 +19,9 @@
 		AA7197DA1D598E630030B138 /* SendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7197D91D598E630030B138 /* SendingViewController.swift */; };
 		AA7197DD1D598EA20030B138 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7197DC1D598EA20030B138 /* StatsViewController.swift */; };
 		AA7197DF1D5AD2160030B138 /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7197DE1D5AD2160030B138 /* Values.swift */; };
+		AAF49F5D1D722F3400D7A8ED /* StatsLapAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF49F5C1D722F3400D7A8ED /* StatsLapAmountViewController.swift */; };
+		AAF49F5F1D72400600D7A8ED /* StatsDetailAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF49F5E1D72400600D7A8ED /* StatsDetailAllViewController.swift */; };
+		AAF49F631D724C8B00D7A8ED /* StairsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF49F621D724C8B00D7A8ED /* StairsObject.swift */; };
 		AAFE29011D68A890004ABA93 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE29001D68A890004ABA93 /* Util.swift */; };
 		AAFE29031D68AEC4004ABA93 /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE29021D68AEC4004ABA93 /* FinishedViewController.swift */; };
 		AAFE29071D6BDF44004ABA93 /* pause_filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFE29051D6BDF44004ABA93 /* pause_filled-50.png */; };
@@ -44,6 +47,9 @@
 		AA7197D91D598E630030B138 /* SendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingViewController.swift; sourceTree = "<group>"; };
 		AA7197DC1D598EA20030B138 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		AA7197DE1D5AD2160030B138 /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
+		AAF49F5C1D722F3400D7A8ED /* StatsLapAmountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsLapAmountViewController.swift; sourceTree = "<group>"; };
+		AAF49F5E1D72400600D7A8ED /* StatsDetailAllViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsDetailAllViewController.swift; sourceTree = "<group>"; };
+		AAF49F621D724C8B00D7A8ED /* StairsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StairsObject.swift; path = ../StairsObject.swift; sourceTree = "<group>"; };
 		AAFE29001D68A890004ABA93 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		AAFE29021D68AEC4004ABA93 /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
 		AAFE29051D6BDF44004ABA93 /* pause_filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause_filled-50.png"; sourceTree = "<group>"; };
@@ -97,12 +103,13 @@
 				AA7197C21D598BAB0030B138 /* AppDelegate.swift */,
 				AA7197C61D598BAB0030B138 /* Main.storyboard */,
 				AA7197CE1D598BAB0030B138 /* LaunchScreen.storyboard */,
+				AAF49F621D724C8B00D7A8ED /* StairsObject.swift */,
+				AA7197DE1D5AD2160030B138 /* Values.swift */,
+				AAFE29001D68A890004ABA93 /* Util.swift */,
 				AA7197CC1D598BAB0030B138 /* Assets.xcassets */,
 				AA7197D11D598BAB0030B138 /* Info.plist */,
 				AA4E08AD1D6D43BC00EE6B4A /* GoogleService-Info.plist */,
 				AA7197C91D598BAB0030B138 /* StairSender.xcdatamodeld */,
-				AA7197DE1D5AD2160030B138 /* Values.swift */,
-				AAFE29001D68A890004ABA93 /* Util.swift */,
 				AAFE29041D6BDEC6004ABA93 /* Images */,
 			);
 			path = StairSender;
@@ -112,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				AA7197DC1D598EA20030B138 /* StatsViewController.swift */,
+				AAF49F5C1D722F3400D7A8ED /* StatsLapAmountViewController.swift */,
+				AAF49F5E1D72400600D7A8ED /* StatsDetailAllViewController.swift */,
 				AAFE290B1D6D0DBC004ABA93 /* StatsDetailViewController.swift */,
 				AA7197D91D598E630030B138 /* SendingViewController.swift */,
 				AA7197D71D598E2B0030B138 /* PrepareToSendViewController.swift */,
@@ -267,13 +276,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA7197DF1D5AD2160030B138 /* Values.swift in Sources */,
+				AAF49F631D724C8B00D7A8ED /* StairsObject.swift in Sources */,
 				AA7197C51D598BAB0030B138 /* HomeViewController.swift in Sources */,
 				AA7197D81D598E2B0030B138 /* PrepareToSendViewController.swift in Sources */,
 				AAFE29031D68AEC4004ABA93 /* FinishedViewController.swift in Sources */,
 				AAFE29011D68A890004ABA93 /* Util.swift in Sources */,
 				AA7197C31D598BAB0030B138 /* AppDelegate.swift in Sources */,
 				AA7197DA1D598E630030B138 /* SendingViewController.swift in Sources */,
+				AAF49F5F1D72400600D7A8ED /* StatsDetailAllViewController.swift in Sources */,
 				AAFE290C1D6D0DBC004ABA93 /* StatsDetailViewController.swift in Sources */,
+				AAF49F5D1D722F3400D7A8ED /* StatsLapAmountViewController.swift in Sources */,
 				AA7197DD1D598EA20030B138 /* StatsViewController.swift in Sources */,
 				AA7197CB1D598BAB0030B138 /* StairSender.xcdatamodeld in Sources */,
 			);

@@ -12,16 +12,13 @@ import UIKit
 class StatsDetailViewController: UIViewController {
 
     @IBOutlet var setTitleButtonOutlet: UIButton!
-    @IBOutlet var bestTotalTimeLabel: UILabel!
+    @IBOutlet var bestTotalLabel: UILabel!
     @IBOutlet var bestLapLabel: UILabel!
-    @IBOutlet var worstTotalTimeLabel: UILabel!
-    
-    @IBOutlet var worstLapLabel: UILabel!
-    @IBOutlet var totalSetsLabel: UILabel!
-    
-    @IBOutlet var averageSetTimeLabel: UILabel!
-    
+    @IBOutlet var averageTotalLabel: UILabel!
     @IBOutlet var averageLapLabel: UILabel!
+    @IBOutlet var worstTotalLabel: UILabel!
+    @IBOutlet var worstLapLabel: UILabel!
+    @IBOutlet var lapAmountLabel: UILabel!
     
     @IBAction func backButtonAction(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true);
@@ -35,7 +32,18 @@ class StatsDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        setTitleButtonOutlet.setTitle(activeStatDetail, forState: UIControlState.Normal);
+        setTitleButtonOutlet.setTitle(activeStat["title"], forState: UIControlState.Normal);
+        lapAmountLabel.text = "Laps: \(activeStat["lapAmount"]!)";
+        let stair:StairsObject = stairs[activeStat["id"]!]!;
+        let lapAmountData = stair.lapAmountsData[activeStat["lapAmount"]!];
+        
+        
+        bestLapLabel.text = displayStringFromTimeInterval(Double(lapAmountData!["bestLap"]!)!);
+        worstLapLabel.text = displayStringFromTimeInterval(Double(lapAmountData!["worstLap"]!)!);
+        averageLapLabel.text = displayStringFromTimeInterval(Double(lapAmountData!["averageLap"]!)!);
+        
+        bestTotalLabel.text = displayStringFromTimeInterval(Double(lapAmountData!["bestTotal"]!)!);        worstTotalLabel.text = displayStringFromTimeInterval(Double(lapAmountData!["worstTotal"]!)!);        averageTotalLabel.text = displayStringFromTimeInterval(Double(lapAmountData!["averageTotal"]!)!);
+
     }
     
 }

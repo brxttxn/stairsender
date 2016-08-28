@@ -12,17 +12,17 @@ import FirebaseDatabase
 class HomeViewController: UIViewController {
     
     var ref: FIRDatabaseReference!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         stairs.removeAll()
         retrieveDataFromDb();
@@ -31,13 +31,16 @@ class HomeViewController: UIViewController {
     }
     
     func retrieveDataFromDb() {
+        stairTitles.removeAll();
         self.ref = FIRDatabase.database().reference()
         ref.child("stairs").queryOrderedByChild("title").observeEventType(.ChildAdded, withBlock: { snapshot in
+            stairs[snapshot.key] = StairsObject(snapshot: snapshot);
+            
             if let title = snapshot.value!["title"] as? String {
-                stairs.append(["key": snapshot.key, "title": title]);
+                stairTitles.append(title);
             }
         })
     }
-
+    
 }
 
