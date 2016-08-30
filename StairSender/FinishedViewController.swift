@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 import UIKit
 
 class FinishedViewController: UIViewController {
+    
+    var ref: FIRDatabaseReference!
     
     @IBOutlet var setTitleLabel: UILabel!
     @IBOutlet var setDescription: UILabel!
@@ -19,8 +22,7 @@ class FinishedViewController: UIViewController {
     @IBOutlet var bestLapLabel: UILabel!
     @IBOutlet var averageLapLabel: UILabel!
     @IBAction func saveButtonAction(sender: AnyObject) {
-        //save values
-
+        saveSet();
         resetCurValues();
         performSegueWithIdentifier(Constants.Segues.saveSetSegue, sender: nil);
     }
@@ -34,6 +36,7 @@ class FinishedViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        updateLapRecords();
         setLabels();
     }
     
@@ -43,8 +46,8 @@ class FinishedViewController: UIViewController {
         totalTimeLabel.text = displayStringFromTimeInterval(curTotalTime);
         totalLapsLabel.text = "\(curLap - 1)";
         if (curLapTimes.count > 0){
-            bestLapLabel.text = displayStringFromTimeInterval(getBestLap());
-            averageLapLabel.text = displayStringFromTimeInterval(getAverageLap());
+            bestLapLabel.text = displayStringFromTimeInterval(curBestLap);
+            averageLapLabel.text = displayStringFromTimeInterval(curAverageLap);
         } else {
             bestLapLabel.text = "...";
             averageLapLabel.text = "...";
@@ -52,18 +55,41 @@ class FinishedViewController: UIViewController {
         
     }
     
-    func getBestLap() -> NSTimeInterval {
+    func updateLapRecords() {
         curLapTimes.sortInPlace();
-        return curLapTimes[0];
-    }
-    
-    func getAverageLap() -> Double {
-        let average: Double = (curLapTimes as AnyObject).valueForKeyPath("@avg.self") as! Double
-        return average;
+        curBestLap = curLapTimes[0];
+        curWorstLap = curLapTimes[curLapTimes.count - 1];
+        curAverageLap = (curLapTimes as AnyObject).valueForKeyPath("@avg.self") as! Double;
     }
     
     func getDescription() -> String {
         return (quiter ? "Quitting is for quitters. Let's finish next time alright?" : "Nice work, but next time let's take it up a notch.");
     }
+    
+    func saveSet() {
+        //if quitter WIP
+        if stairTitles.contains(curSetTitle) {
+            let stair = getStairsObjectByTitle(curSetTitle)!;
+            let updatedStair = updateStairMetadata(stair);
+            
+            self.ref = FIRDatabase.database().reference()
+            let stairsRef = ref.child("stairs/\(stairTitleIdDict[curSetTitle]!)")
+            
+            for (key, value) in updatedStair.stairMetadata {
+                stairsRef.updateChildValues(["\(key)": "\(value)"]);
+            }
+            
+            let lapData = stair.lapAmountsData["\(curLaps)"];
+            let updatedLapData = updateLapData(lapData!);
+            
+            let lapAmountRef = ref.child("stairs/\(stairTitleIdDict[curSetTitle]!)/\(curLaps)")
+            
+            for (key, value) in updatedLapData {
+                lapAmountRef.updateChildValues(["\(key)": "\(value)"]);
+            }
+            
+        }
+    }
+    
 }
 

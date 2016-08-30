@@ -34,13 +34,12 @@ class StatsDetailAllViewController: UIViewController {
         setTitleButtonOutlet.setTitle(activeStat["title"], forState: UIControlState.Normal);
         let stair:StairsObject = stairs[activeStat["id"]!]!;
         
-        bestLapLabel.text = displayStringFromTimeInterval((Double(stair.stairMetaData["bestLap"]!)!).roundToPlaces(2))
-        worstLapLabel.text = displayStringFromTimeInterval((Double(stair.stairMetaData["worstLap"]!)!).roundToPlaces(2))
-        averageLapLabel.text = displayStringFromTimeInterval((Double(stair.stairMetaData["averageLap"]!)!).roundToPlaces(2))
+        bestLapLabel.text = displayStringFromTimeInterval(Double(stair.stairMetadata["bestLap"]!)!);
+        worstLapLabel.text = displayStringFromTimeInterval(Double(stair.stairMetadata["worstLap"]!)!);
+        averageLapLabel.text = displayStringFromTimeInterval(Double(stair.stairMetadata["averageLap"]!)!);
+        totalLapsAmount.text = stair.stairMetadata["totalLaps"];
         
-        totalLapsAmount.text = stair.stairMetaData["totalLaps"];
-        
-        totalSetsLabel.text = stair.stairMetaData["totalSets"];
+        totalSetsLabel.text = stair.stairMetadata["totalSets"];
     }
     
 }

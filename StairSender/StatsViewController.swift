@@ -44,7 +44,7 @@ class StatsViewController: UIViewController {
     
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         let stair = getStairsObjectByTitle(stairTitles[indexPath.row]);
-        activeStat = ["id" : stair!.id, "title" : stair!.stairMetaData["title"]!];
+        activeStat = ["id" : stair!.id, "title" : stair!.stairMetadata["title"]!];
         performSegueWithIdentifier(Constants.Segues.statsToLapAmountSegue, sender: self);
         
         return indexPath;

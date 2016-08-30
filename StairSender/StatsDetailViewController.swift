@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class StatsDetailViewController: UIViewController {
-
+    
     @IBOutlet var setTitleButtonOutlet: UIButton!
     @IBOutlet var bestTotalLabel: UILabel!
     @IBOutlet var bestLapLabel: UILabel!
@@ -42,8 +42,10 @@ class StatsDetailViewController: UIViewController {
         worstLapLabel.text = displayStringFromTimeInterval(Double(lapAmountData!["worstLap"]!)!);
         averageLapLabel.text = displayStringFromTimeInterval(Double(lapAmountData!["averageLap"]!)!);
         
-        bestTotalLabel.text = displayStringFromTimeInterval(Double(lapAmountData!["bestTotal"]!)!);        worstTotalLabel.text = displayStringFromTimeInterval(Double(lapAmountData!["worstTotal"]!)!);        averageTotalLabel.text = displayStringFromTimeInterval(Double(lapAmountData!["averageTotal"]!)!);
-
+        bestTotalLabel.text = displayStringFromTimeInterval(Double(lapAmountData!["bestTotal"]!)!);
+        worstTotalLabel.text = displayStringFromTimeInterval(Double(lapAmountData!["worstTotal"]!)!);
+        averageTotalLabel.text = displayStringFromTimeInterval(Double(lapAmountData!["averageTotal"]!)!);
+        
     }
     
 }

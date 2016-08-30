@@ -38,6 +38,7 @@ class HomeViewController: UIViewController {
             
             if let title = snapshot.value!["title"] as? String {
                 stairTitles.append(title);
+                stairTitleIdDict[title] = snapshot.key;
             }
         })
     }
