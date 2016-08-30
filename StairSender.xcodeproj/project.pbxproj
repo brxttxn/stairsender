@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		74E8FEDDBE3306E4A46F196D /* Pods_StairSender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD71008FBCC8458979DE915 /* Pods_StairSender.framework */; };
+		AA0D3DFA1D751BA400007915 /* stairs.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0D3DF91D751BA400007915 /* stairs.png */; };
 		AA4E08AE1D6D43BC00EE6B4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA4E08AD1D6D43BC00EE6B4A /* GoogleService-Info.plist */; };
 		AA7197C31D598BAB0030B138 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7197C21D598BAB0030B138 /* AppDelegate.swift */; };
 		AA7197C51D598BAB0030B138 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7197C41D598BAB0030B138 /* HomeViewController.swift */; };
@@ -26,7 +27,6 @@
 		AAFE29031D68AEC4004ABA93 /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE29021D68AEC4004ABA93 /* FinishedViewController.swift */; };
 		AAFE29071D6BDF44004ABA93 /* pause_filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFE29051D6BDF44004ABA93 /* pause_filled-50.png */; };
 		AAFE29081D6BDF44004ABA93 /* pause-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFE29061D6BDF44004ABA93 /* pause-50.png */; };
-		AAFE290A1D6C130D004ABA93 /* stairs.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFE29091D6C130D004ABA93 /* stairs.png */; };
 		AAFE290C1D6D0DBC004ABA93 /* StatsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE290B1D6D0DBC004ABA93 /* StatsDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +34,7 @@
 		6AD71008FBCC8458979DE915 /* Pods_StairSender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StairSender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BCADC20164F5FD6DFC2CCAD /* Pods-StairSender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StairSender.release.xcconfig"; path = "Pods/Target Support Files/Pods-StairSender/Pods-StairSender.release.xcconfig"; sourceTree = "<group>"; };
 		75FE3677223868B579F7C180 /* Pods-StairSender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StairSender.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StairSender/Pods-StairSender.debug.xcconfig"; sourceTree = "<group>"; };
+		AA0D3DF91D751BA400007915 /* stairs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stairs.png; sourceTree = "<group>"; };
 		AA4E08AD1D6D43BC00EE6B4A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AA7197BF1D598BAB0030B138 /* StairSender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StairSender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7197C21D598BAB0030B138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +55,6 @@
 		AAFE29021D68AEC4004ABA93 /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
 		AAFE29051D6BDF44004ABA93 /* pause_filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause_filled-50.png"; sourceTree = "<group>"; };
 		AAFE29061D6BDF44004ABA93 /* pause-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-50.png"; sourceTree = "<group>"; };
-		AAFE29091D6C130D004ABA93 /* stairs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stairs.png; sourceTree = "<group>"; };
 		AAFE290B1D6D0DBC004ABA93 /* StatsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,7 +133,7 @@
 		AAFE29041D6BDEC6004ABA93 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				AAFE29091D6C130D004ABA93 /* stairs.png */,
+				AA0D3DF91D751BA400007915 /* stairs.png */,
 				AAFE29051D6BDF44004ABA93 /* pause_filled-50.png */,
 				AAFE29061D6BDF44004ABA93 /* pause-50.png */,
 			);
@@ -214,8 +214,8 @@
 				AAFE29071D6BDF44004ABA93 /* pause_filled-50.png in Resources */,
 				AAFE29081D6BDF44004ABA93 /* pause-50.png in Resources */,
 				AA7197CD1D598BAB0030B138 /* Assets.xcassets in Resources */,
+				AA0D3DFA1D751BA400007915 /* stairs.png in Resources */,
 				AA7197C81D598BAB0030B138 /* Main.storyboard in Resources */,
-				AAFE290A1D6C130D004ABA93 /* stairs.png in Resources */,
 				AA4E08AE1D6D43BC00EE6B4A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

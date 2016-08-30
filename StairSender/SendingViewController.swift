@@ -15,6 +15,7 @@ class SendingViewController: UIViewController {
     var resumeWait: NSTimeInterval = 0.0;
     var resumeWaitStart: NSTimeInterval = 0.0;
     
+    @IBOutlet var lapLabel: UILabel!
     @IBOutlet var setTitleLabel: UILabel!
     @IBOutlet var pauseButtonOutlet: UIButton!
     
@@ -72,6 +73,7 @@ class SendingViewController: UIViewController {
             lapButtonOutlet.setTitle("Done!", forState: UIControlState.Normal);
         }
         curLap += 1;
+        setLapLabel();
         lapTimer.invalidate();
         startLapTimer();
     }
@@ -91,6 +93,7 @@ class SendingViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         setTitleLabel.text = curSetTitle;
+        setLapLabel();
         startLapTimer();
         startTotalTimer();
     }
@@ -117,10 +120,28 @@ class SendingViewController: UIViewController {
         curTotalTime = curTime - totalTimerStartTime;
         curTotalTimeLabel.text = stringFromTimeInterval(curTotalTime);
     }
+    
     func updateLapClock() {
         let curTime = NSDate.timeIntervalSinceReferenceDate();
         curLapTime = curTime - lapTimerStartTime;
         curLapTimeLabel.text = stringFromTimeInterval(curLapTime);
     }
     
+    func setLapLabel() {
+        lapLabel.text = "Lap: \(curLap)";
+    }
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
