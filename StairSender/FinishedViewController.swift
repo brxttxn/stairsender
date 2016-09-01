@@ -21,6 +21,7 @@ class FinishedViewController: UIViewController {
     @IBOutlet var totalLapsLabel: UILabel!
     @IBOutlet var bestLapLabel: UILabel!
     @IBOutlet var averageLapLabel: UILabel!
+    @IBOutlet var saveButtonOutlet: UIButton!
     @IBAction func saveButtonAction(sender: AnyObject) {
         saveSet();
         resetCurValues();
@@ -36,15 +37,18 @@ class FinishedViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        updateLapRecords();
+        updateRecords();
         setLabels();
     }
     
     func setLabels() {
+        if quitter {
+            saveButtonOutlet.setTitle("Try Again", forState: UIControlState.Normal);
+        }
         setTitleLabel.text = curSetTitle;
         setDescription.text = getDescription();
         totalTimeLabel.text = displayStringFromTimeInterval(curTotalTime);
-        totalLapsLabel.text = "\(curLap - 1)";
+        totalLapsLabel.text = "\(curLap)";
         if (curLapTimes.count > 0){
             bestLapLabel.text = displayStringFromTimeInterval(curBestLap);
             averageLapLabel.text = displayStringFromTimeInterval(curAverageLap);
@@ -55,41 +59,85 @@ class FinishedViewController: UIViewController {
         
     }
     
-    func updateLapRecords() {
+    func updateRecords() {
+        curTotalTime = curLapTimes.reduce(0, combine: +);
         curLapTimes.sortInPlace();
-        curBestLap = curLapTimes[0];
-        curWorstLap = curLapTimes[curLapTimes.count - 1];
-        curAverageLap = (curLapTimes as AnyObject).valueForKeyPath("@avg.self") as! Double;
+        if curLapTimes.count > 0 {
+            curBestLap = curLapTimes[0];
+            curWorstLap = curLapTimes[curLapTimes.count - 1];
+            curAverageLap = (curLapTimes as AnyObject).valueForKeyPath("@avg.self") as! Double;
+        }
     }
     
     func getDescription() -> String {
-        return (quiter ? "Quitting is for quitters. Let's finish next time alright?" : "Nice work, but next time let's take it up a notch.");
+        return (quitter ? "Quitting is for quitters. Let's finish next time alright?" : "Nice work, but next time let's take it up a notch.");
     }
     
     func saveSet() {
-        //if quitter WIP
-        if stairTitles.contains(curSetTitle) {
-            let stair = getStairsObjectByTitle(curSetTitle)!;
-            let updatedStair = updateStairMetadata(stair);
-            
-            self.ref = FIRDatabase.database().reference()
-            let stairsRef = ref.child("stairs/\(stairTitleIdDict[curSetTitle]!)")
-            
-            for (key, value) in updatedStair.stairMetadata {
-                stairsRef.updateChildValues(["\(key)": "\(value)"]);
+        if !quitter {
+            if stairTitles.contains(curSetTitle) {
+                let stair = getStairsObjectByTitle(curSetTitle)!;
+                let updatedStair = updateStairMetadata(stair);
+                
+                self.ref = FIRDatabase.database().reference()
+                let stairsRef = ref.child("stairs/\(stairTitleIdDict[curSetTitle]!)")
+                
+                for (key, value) in updatedStair.stairMetadata {
+                    stairsRef.updateChildValues(["\(key)": "\(value)"]);
+                }
+                
+                var updatedLapData = [String:String]();
+                if let lapData = stair.lapAmountsData["\(curLaps)"] {
+                    updatedLapData = updateLapData(lapData);
+                } else {
+                    updatedLapData = updateLapData(updatedLapData);
+                }
+                
+                let lapAmountRef = ref.child("stairs/\(stairTitleIdDict[curSetTitle]!)/\(curLaps)");
+                
+                for (key, value) in updatedLapData {
+                    lapAmountRef.updateChildValues(["\(key)": "\(value)"]);
+                }
+                
+            } else {
+                let stair = StairsObject(title: curSetTitle, bestLap: String(curBestLap), worstLap: String(curWorstLap), averageLap: String(curAverageLap), totalLaps: String(curLaps), totalSets: "1", lapAmount: String(curLaps));
+                self.ref = FIRDatabase.database().reference()
+                let stairsRef = ref.child("stairs")
+                
+                let newStair = stair;
+                let newStairRef = stairsRef.childByAutoId();
+                newStairRef.setValue(newStair.stairMetadata);
+                
+                let updatedLapData = updateLapData([String:String]());
+                let lapAmountRef = newStairRef.child("\(curLaps)");
+                
+                for (key, value) in updatedLapData {
+                    lapAmountRef.updateChildValues(["\(key)": "\(value)"]);
+                }
+                
             }
-            
-            let lapData = stair.lapAmountsData["\(curLaps)"];
-            let updatedLapData = updateLapData(lapData!);
-            
-            let lapAmountRef = ref.child("stairs/\(stairTitleIdDict[curSetTitle]!)/\(curLaps)")
-            
-            for (key, value) in updatedLapData {
-                lapAmountRef.updateChildValues(["\(key)": "\(value)"]);
-            }
-            
         }
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -54,7 +54,7 @@ class SendingViewController: UIViewController {
         }
         let quitAction = UIAlertAction(title: "Quit", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
-            quiter = true;
+            quitter = true;
             self.finishSet();
         }
         
@@ -65,20 +65,17 @@ class SendingViewController: UIViewController {
     }
     
     @IBAction func lapButtonAction(sender: AnyObject) {
-        
         curLapTimes.append(curLapTime);
-        if curLap == curLaps {
-            finishSet();
-        } else if curLap + 1 == curLaps {
-            lapButtonOutlet.setTitle("Done!", forState: UIControlState.Normal);
-        }
         curLap += 1;
+        setButtonLabel();
         setLapLabel();
         lapTimer.invalidate();
         startLapTimer();
     }
     
     func finishSet() {
+        totalTimer.invalidate();
+        lapTimer.invalidate();
         self.performSegueWithIdentifier(Constants.Segues.finishedSegue, sender: nil);
     }
     
@@ -94,13 +91,17 @@ class SendingViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         setTitleLabel.text = curSetTitle;
         setLapLabel();
+        setButtonLabel();
         startLapTimer();
         startTotalTimer();
     }
     
-    override func viewDidDisappear(animated: Bool) {
-        totalTimer.invalidate();
-        lapTimer.invalidate();
+    func setButtonLabel() {
+        if curLap == curLaps {
+            finishSet();
+        } else if curLap + 1 == curLaps {
+            lapButtonOutlet.setTitle("Done!", forState: UIControlState.Normal);
+        }
     }
     
     func startLapTimer() {
@@ -128,7 +129,7 @@ class SendingViewController: UIViewController {
     }
     
     func setLapLabel() {
-        lapLabel.text = "Lap: \(curLap)";
+        lapLabel.text = "Lap: \(curLap + 1)";
     }
     
     

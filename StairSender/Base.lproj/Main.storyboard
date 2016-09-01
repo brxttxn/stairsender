@@ -989,6 +989,7 @@
                     <connections>
                         <outlet property="averageLapLabel" destination="MMe-jG-ndy" id="SQZ-aU-gb9"/>
                         <outlet property="bestLapLabel" destination="Zcy-p2-02z" id="LDl-XY-duc"/>
+                        <outlet property="saveButtonOutlet" destination="h03-Dx-41P" id="l9z-sp-dWs"/>
                         <outlet property="setDescription" destination="62j-T7-jMz" id="OCF-8N-dQw"/>
                         <outlet property="setTitleLabel" destination="0pz-vD-hrN" id="80x-fJ-URB"/>
                         <outlet property="totalLapsLabel" destination="Mhr-mb-Zzd" id="3KE-PD-JYu"/>

@@ -45,9 +45,19 @@ class StatsViewController: UIViewController {
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         let stair = getStairsObjectByTitle(stairTitles[indexPath.row]);
         activeStat = ["id" : stair!.id, "title" : stair!.stairMetadata["title"]!];
+        
+        updateDisplayLapAmounts(stair!.lapAmountsData);
         performSegueWithIdentifier(Constants.Segues.statsToLapAmountSegue, sender: self);
         
         return indexPath;
+    }
+    
+    func updateDisplayLapAmounts(lapAmountsData: [String:[String:String]]) {
+        displayLapAmounts.removeAll();
+        displayLapAmounts.append("All");
+        for (key, _) in lapAmountsData {
+            displayLapAmounts.append(key);
+        }
     }
 }
 
